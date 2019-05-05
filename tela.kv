@@ -1,0 +1,480 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+ScreenManagement:
+	transition: FadeTransition()
+    HomeScreen:
+    ConfigScreen:
+
+
+<HomeScreen>:
+    name: "HomeScreen"
+    BoxLayout:
+        size_hint: 1,1
+        orientation:'vertical'
+        canvas:
+            Color:
+                rgba: 255,255,255,0.2#13/255,13/255,13/255, 0.7
+            Rectangle:
+                pos: self.pos
+                size: self.size
+#                source: "img/logo.png"
+        BoxLayout:
+            size_hint: 1,0.03
+            orientation: 'horizontal'
+            height : '30sp'
+            pos_hint: {'center_x': 1.34, 'center_y': 0.5}
+            spacing: '10sp'
+            Button:
+                size_hint: None,None
+                width: "30sp"
+                height: "30sp"
+                background_color: 255,255,255,0
+    #            on_press: app.root.current = 'AboutScreen'
+#                pos_hint: {'center_x': 0.5, 'center_y': .4}
+#                background_normal: 'img/config.png'
+#                background_down: 'img/config_press.png'
+                Image:
+                    source:'img/infoLogo.png'
+                    size: 30, 30
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+            Button:
+                size_hint: None,None
+                width: "30sp"
+                height: "30sp"
+                background_color: 255,255,255,0
+#                pos_hint: {'center_x': .5, 'center_y': .4}
+                on_press: app.root.current = 'ConfigScreen'
+                Image:
+                    source:'img/confLogo.png'
+                    size: 30, 30
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
+            Button:
+                size_hint: None,None
+                width: "30sp"
+                height: "30sp"
+                background_color: 255,255,255,0
+#                pos_hint: {'center_x': .5, 'center_y': .4}
+                on_press: exit()
+                Image:
+                    source:'img/exitLogo.png'
+                    size: 30, 30
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+        BoxLayout:
+            size_hint: 1,0.2
+            height: '160sp'
+            width: "160sp"
+            pos_hint: {'center_x': .5, 'center_y': .5}
+
+            BoxLayout:
+                size_hint: None,None
+                height: '80sp'
+                width: '240sp'
+                orientation:'vertical'
+                spacing:'10sp'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                Image:
+                    source:'img/chaveLogo.png'
+                    size_hint: None, None
+                    width:'50sp'
+                    height: '50sp'
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                Button:
+                    text: "SENHA"
+                    font_size:'20sp'
+                    size_hint: None,None
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    width:'200sp'
+                    height: '30sp'
+                    background_color: 51/255,51/255,255/255, 0
+                    on_press: root.setPassword()
+                    canvas.before:
+                        Color:
+                            rgba:51/255,51/255,255/255, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [15,]
+            BoxLayout:
+                size_hint: None,None
+                height: '80sp'
+                width: '240sp'
+                orientation:'vertical'
+                spacing:'10sp'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                Image:
+                    source:'img/usbLogo.png'
+                    size_hint: None, None
+                    width:'50sp'
+                    height: '50sp'
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                Button:
+                    text: "DISPOSITIVO"
+                    font_size:'20sp'
+                    size_hint: None,None
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    width:'200sp'
+                    height: '30sp'
+                    on_press:root.setDevice()
+                    background_color: 51/255,51/255,255/255, 0
+                    canvas.before:
+                        Color:
+                            rgba:51/255,51/255,255/255, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [15,]
+            BoxLayout:
+                size_hint: None,None
+                height: '80sp'
+                width: '240sp'
+                orientation:'vertical'
+                spacing:'10sp'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                Image:
+                    id: imgMode
+                    source:'img/lockLogo.png'
+                    size_hint: None, None
+                    width:'50sp'
+                    height: '50sp'
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                Button:
+                    text: "MODO"
+                    font_size:'20sp'
+                    size_hint: None,None
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    width:'200sp'
+                    height: '30sp'
+                    on_press: root.setMode()
+                    background_color: 51/255,51/255,255/255, 0
+                    canvas.before:
+                        Color:
+                            rgba:51/255,51/255,255/255, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [15,]
+            BoxLayout:
+                size_hint: None,None
+                height: '80sp'
+                width: '30sp'
+                orientation:'vertical'
+                spacing:'10sp'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+
+                Button:
+                    font_size:'20sp'
+                    size_hint: None,None
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    width:'30sp'
+                    height: '30sp'
+                    on_press: root.startCryptography()
+                    background_color: 51/255,51/255,255/255, 0
+                    Image:
+                        source:'img/confirmaLogo.png'
+                        size: 30, 30
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+        BoxLayout:
+            size_hint: 1,None
+            orientation: 'horizontal'
+            height : '50sp'
+            width: '770sp'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            spacing: '10sp'
+            Image:
+                source:'img/programLogo.png'
+#                size: 30, 30
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+#############################################################################################
+<ConfigScreen>:
+    name: "ConfigScreen"
+    BoxLayout:
+        size_hint: 1,1
+        orientation:'vertical'
+        canvas:
+            Color:
+                rgba: 255,255,255,0.2#13/255,13/255,13/255, 0.7
+            Rectangle:
+                pos: self.pos
+                size: self.size
+#                source: "img/logo.png"
+        BoxLayout:
+            size_hint: 1,0.03
+            orientation: 'horizontal'
+            height : '30sp'
+            pos_hint: {'center_x': 1.34, 'center_y': 0.5}
+            spacing: '10sp'
+            Button:
+                size_hint: None,None
+                width: "30sp"
+                height: "30sp"
+                background_color: 255,255,255,0
+#                pos_hint: {'center_x': .5, 'center_y': .4}
+                on_press: app.root.current = 'HomeScreen'
+                Image:
+                    source:'img/back.png'
+                    size: 30, 30
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
+            Button:
+                size_hint: None,None
+                width: "30sp"
+                height: "30sp"
+                background_color: 255,255,255,0
+                Image:
+                    source:'img/infoLogo.png'
+                    size: 30, 30
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
+            Button:
+                size_hint: None,None
+                width: "30sp"
+                height: "30sp"
+                background_color: 255,255,255,0
+#                pos_hint: {'center_x': .5, 'center_y': .4}
+                on_press: exit()
+                Image:
+                    source:'img/exitLogo.png'
+                    size: 30, 30
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+        BoxLayout:
+            size_hint: 1,0.2
+            height: '160sp'
+            width: "160sp"
+            orientation:'vertical'
+            spacing:'10sp'
+#            pos_hint: {'center_x': .5, 'center_y': 1}
+            Label:
+                text:'Configuração'
+            BoxLayout:
+                size_hint: None,None
+                height: '30sp'
+                width: "200sp"
+                spacing:'20sp'
+                orientation: 'horizontal'
+#                pos_hint: {'center_x': .5, 'center_y': .5}
+                CheckBox:
+#                    group: 'check'
+                    id : chk
+                    on_active: print(chk.state)
+                Label:
+                    text: 'Notificação de conclusão'
+            BoxLayout:
+                size_hint: None,None
+                height: '30sp'
+                width: "200sp"
+                spacing:'20sp'
+                orientation: 'horizontal'
+#                pos_hint: {'center_x': .5, 'center_y': .5}
+                CheckBox:
+#                    group: 'check'
+                    id : chk2
+                    on_active: print(chk2.state)
+                Label:
+                    text: 'Modo avançado'
+
+            BoxLayout:
+                size_hint: 1,None
+                height: '150sp'
+                width: "200sp"
+                spacing:'20sp'
+                orientation: 'horizontal'
+                pos_hint: {'center_x': .85, 'center_y': .5}
+                Button:
+                    text: "Ativar produto"
+                    font_size:'20sp'
+                    size_hint: None,None
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    width:'200sp'
+                    height: '30sp'
+#                    on_press: root.confirm()
+                    background_color: 51/255,51/255,255/255, 0
+                    canvas.before:
+                        Color:
+                            rgba:51/255,51/255,255/255, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [15,]
+
+
+
+        BoxLayout:
+            size_hint: 1,None
+            orientation: 'horizontal'
+            height : '50sp'
+            width: '770sp'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            spacing: '10sp'
+            Image:
+                source:'img/programLogo.png'
+#                size: 30, 30
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+##############################Popup##########################################################
+<PasswordSelect>:
+    name: 'PasswordSelect'
+#    title: u'Insira a sua senha'
+    size_hint: None,None
+    width: '300sp'
+    height: '180sp'
+    title: ""
+    separator_height: 0
+    title_align: 'center'
+    background_color: 255, 255, 255, 0.7
+    auto_dismiss: False
+    BoxLayout:
+        size_hint:1,1
+        spacing:'20sp'
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        orientation: 'vertical'
+        Image:
+            source:'img/chaveLogo.png'
+            size_hint: None, None
+            width:'50sp'
+            height: '50sp'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+
+        TextInput:
+            size_hint: None,None
+            id: password
+            width: '250sp'
+            height:'30sp'
+            multiline:False
+            password: True
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            hint_text:'Insira a senha'
+        Button:
+            text: "Confirmar"
+            font_size:'20sp'
+            size_hint: None,None
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            width:'200sp'
+            height: '30sp'
+            on_press: root.confirm()
+            background_color: 51/255,51/255,255/255, 0
+            canvas.before:
+                Color:
+                    rgba:51/255,51/255,255/255, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [15,]
+
+<DeviceSelect>:
+    name: 'DeviceSelect'
+    size_hint: None,None
+    width: '300sp'
+    height: '180sp'
+    title: ""
+    separator_height: 0
+    title_align: 'center'
+    background_color: 255, 255, 255, 0.7
+    auto_dismiss: False
+    BoxLayout:
+        size_hint:1,1
+        spacing:'20sp'
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        orientation: 'vertical'
+        Image:
+            source:'img/usbLogo.png'
+            size_hint: None, None
+            width:'50sp'
+            height: '50sp'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+        Spinner:
+            id: listPorts
+            size_hint: None,None
+            width: '280sp'
+            height: '30sp'
+            text:"Selecione o dispositivo"
+            values:("Selecione",)
+            font_size:'20sp'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+        Button:
+            text: "Confirmar"
+            font_size:'20sp'
+            size_hint: None,None
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            width:'200sp'
+            height: '30sp'
+            on_press: root.confirm()
+            background_color: 51/255,51/255,255/255, 0
+            canvas.before:
+                Color:
+                    rgba:51/255,51/255,255/255, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [15,]
+
+<ModeSelect>:
+    name: 'ModeSelect'
+    size_hint: None,None
+    width: '300sp'
+    height: '180sp'
+    title: ""
+    separator_height: 0
+    title_align: 'center'
+    background_color: 255, 255, 255, 0.7
+    auto_dismiss: False
+    BoxLayout:
+        size_hint:1,1
+        spacing:'20sp'
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint: 0.5,0.03
+            orientation: 'horizontal'
+            height : '60sp'
+            pos_hint: {'center_x': 0.45, 'center_y': 0.5}
+            spacing: '50sp'
+            Button:
+                size_hint: None,None
+                width: "60sp"
+                height: "60sp"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                background_color: 255,255,255,0
+                on_press: btnConfirmaModo.text = 'Criptografar'
+                Image:
+                    source:'img/lockLogo.png'
+                    size: 60, 60
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+            Button:
+                size_hint: None,None
+                width: "60sp"
+                height: "60sp"
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                background_color: 255,255,255,0
+                on_press: btnConfirmaModo.text = 'Descriptografar'
+                Image:
+                    source:'img/unlockLogo.png'
+                    size: 60, 60
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+        Button:
+            id: btnConfirmaModo
+            text: "Confirmar"
+            font_size:'20sp'
+            size_hint: None,None
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            width:'200sp'
+            height: '30sp'
+            on_press: root.confirm()
+            background_color: 51/255,51/255,255/255, 0
+            canvas.before:
+                Color:
+                    rgba:51/255,51/255,255/255, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [15,]
