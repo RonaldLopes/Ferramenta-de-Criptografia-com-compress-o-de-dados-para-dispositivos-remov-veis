@@ -50,5 +50,5 @@ Esse software foi desenvolvido apenas para fins acadêmicos, no entanto, algumas
 * Ajustes na interface
 
 
-####Programa desenvolvido por Ronald Lopes
+##Programa desenvolvido por Ronald Lopes
 ![](img/programLogo.png)
